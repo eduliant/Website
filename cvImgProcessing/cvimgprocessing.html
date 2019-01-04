@@ -11,14 +11,14 @@
     gtag('config', 'UA-129189524-1');
   </script>
 
-  <script>
-function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
-  document.execCommand("copy");
-  alert("Copied the text: " + copyText.value);
-}
-</script>tr54
+  <script type="text/javascript" src="../codehigh/scripts/XRegExp.js"></script>
+  <script type="text/javascript" src="../codehigh/scripts/shCore.js"></script>
+  <script type="text/javascript" src="../codehigh/scripts/shBrushPython.js"></script>
+  <link href="../codehigh/styles/shCore.css" rel="stylesheet" type="text/css" />
+  <link href="../codehigh/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 
   <meta charset="utf-8">
   <title>eduliant | eduliant</title>
@@ -44,7 +44,7 @@ function myFunction() {
   <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="../lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet"> 
+  <link href="../lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
   <link href="../lib/modal-video/css/modal-video.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
@@ -65,7 +65,7 @@ function myFunction() {
   <link href="../css/carousel.css" rel="stylesheet">
   <link href="../css/elegant-icons-style.css" rel="stylesheet" />
 
-  <link href="css/style-responsive.css" rel="stylesheet" />
+  <link href="../css/style-responsive.css" rel="stylesheet" />
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -88,13 +88,14 @@ function myFunction() {
         <div class="container">
 
           <div id="logo" class="pull-left">
-            <h1><a href="../index.html" class="scrollto"><img src="../img/fevicon.png" alt="" title="eduliant"/><span> e</span>duliant</a></h1>
+            <h1><a href="../index.html" class="scrollto"><img src="img/fevicon.png" alt="" title="eduliant"/><span> e</span>duliant</a></h1>
           </div>
           <nav id="nav-menu-container">
             <ul class="nav-menu">
-              <li><a href="#hero">Tensorflow  </a></li>
-              <li><a href="#blog">Keras</a></li>
-              <li><a href="#blog">Amazon Rekognition</a></li>
+              <!--  <li><a href="#hero">Tensorflow  </a></li>
+                <li><a href="#blog">Keras</a></li>
+                <li><a href="#blog">Amazon Rekognition</a></li>-->
+                <li><a href="../index.html">Home</a>
             </ul>
           </nav><!-- #nav-menu-container -->
         </div>
@@ -108,7 +109,7 @@ function myFunction() {
         <ul class="sidebar-menu">
                    <li class="sub-menu"><a href="computerVision.html" class=""><i class="fa fa-home"></i> <span>CV Dashboard</span></a>
                    <li class="sub-menu"><a class="" href="computerVision.html">CV Environment Setup</a></li>
-                   <li class="sub-menu active"><a class="" href="cvimgprocessing.html">CV Image Processing</a></li>
+                   <li class="sub-menu  active"><a class="" href="cvimgprocessing.html">CV Image Processing</a></li>
                    <li class="sub-menu"><a class="" href="form_validation.html">CV Video Processing</a></li>
                    <li class="sub-menu"><a class="" href="form_validation.html">Core Operations</a></li>
                    <li class="sub-menu"><a class="" href="form_validation.html">Feature Detection and Description</a></li>
@@ -266,36 +267,160 @@ function myFunction() {
 
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
-            <a class="nav-link active " href="../computerVision.html">CV Image Basics</a>
+            <a class="nav-link active" href="computerVision.html">Image Load</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../eclipsepydevinstallation.html">Eclipse-Pydev installation</a>
+            <a class="nav-link" href="imgResizeAndFlip.html">Resizing and Fliping</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../eclipseopencv4configuration.html">Eclipse-CV 4.0.0 Configuration</a>
+            <a class="nav-link" href="eclipseopencv4configuration.html">Eclipse-CV 4.0.0 Configuration</a>
           </li>
         </ul>
 
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><strong>Learn about the image processing (manipulation) functions inside <a href = "https://docs.opencv.org/master/d7/da8/tutorial_table_of_content_imgproc.html" target = blank>OpenCV.</a></strong></h5>
-          <p class="card-text">
-            <ul>
-              <li>1. Open a terminal and type <code > woron cv</code>it will open the venv that we have installed <a href = "../computerVision.html" target = blank> here</a> </li>
-              <li>2. Now type <code> which python</code> it will give you path to the python on which OpenCV4 is configured copy this path </li>
-              <li>3. Now move to eclipse =><em> Window ▸ Preference ▸ Pydev ▸ Interpreter Python menu ▸ Click New with Pipenv </em></li>
-              <li>4. Paste the path just copied in above lines to the current window under pipenv executable, then applhy and close</li>
-              <li>4. Verification - go to pydev project and type <code> import cv2 as cv print(cv.__version__)</code> it will show <em><strong>4.0.0-dev</strong></em> </li>
-            </ul>
-          </p>
-          <em> Please note it will show <em><strong>4.0.0-dev</strong></em> if u have downloaded OpenCV from <a href = "https://github.com/opencv/opencv" target = blank>git</a>
-          , if you have downloaded the stable version form <a href ="https://opencv.org/releases.html" target = blank>here</a> then it will show <em><strong>4.0.0</strong></em>
-        </em>
-        </div>
+
+
+<!---Step 3 : Configuring Core Libraray With Virtual Environment-->
+      <div class="card-body">
+        <h5 class="card-title"><strong>Loading Image</strong></h5>
+        <pre class="brush: python">
+
+          '''
+          Created on 04-Jan-2019
+          @author: http://www.eduliant.com
+
+          All codes are tested with
+
+          OPencv - 4.0.0-dev
+          Python - 3.5.2
+          Ubuntu - 16.04 LTS
+
+          '''
+
+          ''' STEP 1 : Import library
+
+            1. Import OpenCV via import cv2 to use OpenCV.
+            2. Import MatplotLib via import matplotlib.pyplot as plt to view image.
+            3. Import Argparse via import argparse it will help in passing image path in command prompt.
+          '''
+
+
+          import cv2
+          import matplotlib.pyplot as plt
+          import argparse
 
 
 
+          ''' STEP 2 : How to load image
+              1. Directly in opencv
+              2. Via command prompt
+              choose one which suites you.
+          '''
 
+          # Load image directly
+
+          img = cv2.imread("fruitbowl.jpg")
+          assert img is not None  # Check if image is loaded with success or Not.
+
+
+          # Load image via Command Prompt
+
+          parser = argparse.ArgumentParser()
+          # if image path is not given then it will use default image path
+          parser.add_argument('--path', default='fruitbowl.jpg',help='Image path.')
+          params = parser.parse_args()
+          img = cv2.imread(params.path)
+          assert img is not None  # Check if image is loaded with success or Not.
+
+          ''' In command prompt run below command from Project Root Directory
+              python3 Basic1.py --path ../images/dog.jpeg
+          '''
+
+
+          ''' STEP 3 : View Loaded image
+              1. Directly in opencv
+              2. Via command prompt
+              choose one which suites you.
+          '''
+
+          plt.imshow(img)
+          plt.show()
+
+          '''
+            Points to Remember
+
+            1. When we try to load image in OpenCV and if path is incorrect it will not complain
+               hence it is good idea to check if file is loaded successfully or not.
+          '''
+
+
+          </pre>
+      </div>
+
+      <h5 class="card-title"><strong>Basic Operations</strong></h5>
+      <pre class="brush: python">
+
+'''
+Created on 04-Jan-2019
+@author: http://www.eduliant.com
+
+All codes are tested with
+
+OPencv - 4.0.0-dev
+Python - 3.5.2
+Ubuntu - 16.04 LTS
+
+'''
+
+import cv2
+import matplotlib.pyplot as plt
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--path', default='../images/fruitbowl.jpg',help='Image path.')
+params = parser.parse_args()
+img = cv2.imread(params.path)
+assert img is not None  # Check if image is loaded with success or Not.
+
+
+plt.imshow(img)
+plt.show()
+
+'''
+    Operation 1 : Convert Image from BGR to RGB format.
+    When we load image in OpenCV it loads image in BGR, not RGB, format.
+    hence we need to convert it to RGB format.
+
+'''
+
+img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+
+plt.imshow(img)
+plt.show()
+
+'''
+    Operation 2 : Display features of loaded image
+    Like its shape and datatype
+
+'''
+
+print('read {}'.format(params.path)) # gives path of the image
+print('shape:', img.shape) # gives an image's size and number of color channels
+print('dtype:', img.dtype) # gives datatype of the nd array
+
+
+'''
+  Points to Remember
+
+  1. The loaded image is represented as a NumPy array.
+  2. OpenCV loads images in BGR, not RGB, format.
+  3. shape tuple (img.shape) can be interpreted as image height, image width,color channels count.
+  4. cv2.imread() also supports optional flag
+      1. specify unit conversion
+      2. specify image is grayscale or color
+
+'''
+      </pre>
+  </div>
 
 
 

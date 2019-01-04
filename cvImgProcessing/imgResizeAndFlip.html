@@ -11,15 +11,14 @@
     gtag('config', 'UA-129189524-1');
   </script>
 
+  <script type="text/javascript" src="../codehigh/scripts/XRegExp.js"></script>
+  <script type="text/javascript" src="../codehigh/scripts/shCore.js"></script>
+  <script type="text/javascript" src="../codehigh/scripts/shBrushPython.js"></script>
+  <link href="../codehigh/styles/shCore.css" rel="stylesheet" type="text/css" />
+  <link href="../codehigh/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
 
-  <script>
-function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
-  document.execCommand("copy");
-  alert("Copied the text: " + copyText.value);
-}
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 
   <meta charset="utf-8">
   <title>eduliant | eduliant</title>
@@ -93,10 +92,10 @@ function myFunction() {
           </div>
           <nav id="nav-menu-container">
             <ul class="nav-menu">
-              <!--  <li><a href="#hero">Tensorflow  </a></li>
-                <li><a href="#blog">Keras</a></li>
-                <li><a href="#blog">Amazon Rekognition</a></li>-->
-                <li><a href="../index.html">Home</a>
+            <!--  <li><a href="#hero">Tensorflow  </a></li>
+              <li><a href="#blog">Keras</a></li>
+              <li><a href="#blog">Amazon Rekognition</a></li>-->
+              <li><a href="../index.html">Home</a>
             </ul>
           </nav><!-- #nav-menu-container -->
         </div>
@@ -109,8 +108,8 @@ function myFunction() {
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
                    <li class="sub-menu"><a href="computerVision.html" class=""><i class="fa fa-home"></i> <span>CV Dashboard</span></a>
-                   <li class="sub-menu active"><a class="" href="computerVision.html">CV Environment Setup</a></li>
-                   <li class="sub-menu"><a class="" href="cvimgprocessing.html">CV Image Processing</a></li>
+                   <li class="sub-menu"><a class="" href="computerVision.html">CV Environment Setup</a></li>
+                   <li class="sub-menu  active"><a class="" href="cvimgprocessing.html">CV Image Processing</a></li>
                    <li class="sub-menu"><a class="" href="form_validation.html">CV Video Processing</a></li>
                    <li class="sub-menu"><a class="" href="form_validation.html">Core Operations</a></li>
                    <li class="sub-menu"><a class="" href="form_validation.html">Feature Detection and Description</a></li>
@@ -268,34 +267,111 @@ function myFunction() {
 
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
-            <a class="nav-link " href="computerVision.html">CV Linux Installation</a>
+            <a class="nav-link" href="cvimgprocessing.html">Image Load</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="eclipsepydevinstallation.html">Eclipse-Pydev installation</a>
+            <a class="nav-link active" href="imgResizeAndFlip.html">Resizing and Flipping</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="eclipseopencv4configuration.html">Eclipse-CV 4.0.0 Configuration</a>
+            <a class="nav-link" href="eclipseopencv4configuration.html">Eclipse-CV 4.0.0 Configuration</a>
           </li>
         </ul>
 
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><strong>Let's start the Installation Process,Please follow step by step for a error free installation process.</strong></h5>
-          <p class="card-text">
-            <ul>
-              <li>1. Open a terminal and type <code > woron cv</code>it will open the venv that we have installed <a href = "computerVision.html" target = blank> here</a> </li>
-              <li>2. Now type <code> which python</code> it will give you path to the python on which OpenCV4 is configured copy this path </li>
-              <li>3. Now move to eclipse =><em> Window ▸ Preference ▸ Pydev ▸ Interpreter Python menu ▸ Click New with Pipenv </em></li>
-              <li>4. Paste the path just copied in above lines to the current window under pipenv executable, then applhy and close</li>
-              <li>4. Verification - go to pydev project and type <code> import cv2 as cv print(cv.__version__)</code> it will show <em><strong>4.0.0-dev</strong></em> </li>
-            </ul>
-          </p>
-          <em> Please note it will show <em><strong>4.0.0-dev</strong></em> if u have downloaded OpenCV from <a href = "https://github.com/opencv/opencv" target = blank>git</a>
-          , if you have downloaded the stable version form <a href ="https://opencv.org/releases.html" target = blank>here</a> then it will show <em><strong>4.0.0</strong></em>
-        </em>
-        </div>
 
 
+<!---Step 3 : Configuring Core Libraray With Virtual Environment-->
+      <div class="card-body">
+        <h5 class="card-title"><strong>Resizing And Flipping Image</strong></h5>
+        <pre class="brush: python">
+
+
+'''
+@author: http://www.eduliant.com
+
+All codes are tested with
+
+OPencv - 4.0.0-dev
+Python - 3.5.2
+Ubuntu - 16.04 LTS
+
+'''
+
+import cv2
+import matplotlib.pyplot as plt
+
+
+img = cv2.imread("../images/dog.jpeg")
+assert img is not None  # Check if image is loaded with success or Not.
+
+img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+plt.imshow(img)
+plt.show()
+
+
+# Printing the original size
+
+print("Original size of the dog is : ",img.shape) # shape gives us a tuple having height, width and channel.
+print("image height : ",img.shape[0])
+print("image width : ",img.shape[1])
+print("color channels count : ",img.shape[2])
+
+
+'''
+    Operation - Resizing
+    we will use method resize
+'''
+
+width, height = 128, 256
+
+imgResize = cv2.resize(img,(500,900))
+
+print("new size of the dog is : ",imgResize.shape) # shape gives us a tuple
+print("image height : ",imgResize.shape[0])
+print("image width : ",imgResize.shape[1])
+print("color channels count : ",imgResize.shape[2])
+
+
+
+'''
+    Operation - Flip
+    we will use method flip
+'''
+
+# Flip the image along its horizontal x-axis
+
+xaxis_flip = cv2.flip(img,0)
+
+plt.imshow(xaxis_flip)
+plt.show()
+
+
+# Flip the image along its vertical y-axis
+
+yaxis_flip = cv2.flip(img,1)
+
+plt.imshow(yaxis_flip)
+plt.show()
+
+# Flip both x and y axis at the same time
+
+x_y_axis_flip = cv2.flip(img,-1)
+
+plt.imshow(x_y_axis_flip)
+plt.show()
+
+
+'''
+  Points to Remember
+
+  1. flip function is used for mirroring images. It doesn't change the size of an
+    image, but simply swaps the pixels.
+
+'''
+
+
+
+          </pre>
+      </div>
 
 
 
